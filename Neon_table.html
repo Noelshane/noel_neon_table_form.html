@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Code Display</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      padding: 20px;
+    }
+    pre {
+      background: #1e1e1e;
+      color: #dcdcdc;
+      padding: 20px;
+      border-radius: 5px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+    h1 {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>HTML Code Output</h1>
+  <pre>
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang="en"&gt;
+    &lt;head&gt;
+      &lt;meta charset="UTF-8"&gt;
+      &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+      &lt;title&gt;Styled Neon Portrait Form&lt;/title&gt;
+      &lt;style&gt;
+        @keyframes rainbow {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0; padding: 0;
+          background: #0d0d0d;
+          display: flex; justify-content: center; align-items: center;
+          height: 100vh;
+        }
+
+        .container {
+          background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00, #ff0000);
+          background-size: 400% 400%;
+          animation: rainbow 2s linear infinite;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+          width: 400px; padding: 20px; text-align: center;
+        }
+
+        .photo-frame {
+          border: 10px double #fff; border-radius: 15px; margin-bottom: 20px;
+          overflow: hidden;
+        }
+
+        .form h2 {
+          font-size: 24px; color: #000; margin-bottom: 15px;
+        }
+
+        label, .checkbox-group label {
+          color: #000; display: block; margin-top: 10px; font-weight: bold;
+        }
+
+        input, select {
+          width: 100%; padding: 8px; margin-top: 5px;
+          border: 1px solid #ccc; border-radius: 5px;
+          background: #fff; color: #000; outline: none;
+        }
+
+        input:focus, select:focus { border-color: #ff00ff; }
+
+        .checkbox-group label { display: inline-block; margin-right: 10px; }
+
+        button {
+          width: 100%; padding: 10px; margin-top: 15px;
+          border: none; border-radius: 5px; font-size: 16px;
+          background: linear-gradient(90deg, #ff0000, #ff00ff, #00ffff, #ffff00);
+          background-size: 300% 300%; color: white; cursor: pointer;
+          animation: rainbow 1.5s linear infinite;
+        }
+
+        button:hover { transform: scale(1.05); }
+      &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;div class="container"&gt;
+        &lt;div class="photo-frame"&gt;
+          &lt;img src="https://via.placeholder.com/150" alt="Portrait" style="width: 100%; height: auto;"&gt;
+        &lt;/div&gt;
+        &lt;form id="infoForm" class="form" onsubmit="submitForm(event)"&gt;
+          &lt;h2&gt;Personal Information&lt;/h2&gt;
+          &lt;label&gt;First Name: &lt;input type="text" name="firstName" required&gt;&lt;/label&gt;
+          &lt;label&gt;Last Name: &lt;input type="text" name="lastName" required&gt;&lt;/label&gt;
+          &lt;label&gt;Age: &lt;input type="text" name="age" required&gt;&lt;/label&gt;
+          &lt;label&gt;Favorite Subjects:&lt;/label&gt;
+          &lt;div class="checkbox-group"&gt;
+            &lt;label&gt;&lt;input type="checkbox" value="Math"&gt; Math&lt;/label&gt;
+            &lt;label&gt;&lt;input type="checkbox" value="Science"&gt; Science&lt;/label&gt;
+            &lt;label&gt;&lt;input type="checkbox" value="History"&gt; History&lt;/label&gt;
+            &lt;label&gt;&lt;input type="checkbox" value="English"&gt; English&lt;/label&gt;
+          &lt;/div&gt;
+          &lt;label&gt;Date of Birth:&lt;/label&gt;
+          &lt;div&gt;
+            &lt;select name="day"&gt;&lt;option disabled selected&gt;Day&lt;/option&gt;&lt;/select&gt;
+            &lt;select name="month"&gt;&lt;option disabled selected&gt;Month&lt;/option&gt;&lt;/select&gt;
+            &lt;select name="year"&gt;&lt;option disabled selected&gt;Year&lt;/option&gt;&lt;/select&gt;
+          &lt;/div&gt;
+          &lt;label&gt;Father's Name: &lt;input type="text" name="fatherName" required&gt;&lt;/label&gt;
+          &lt;label&gt;Address: &lt;input type="text" name="address" required&gt;&lt;/label&gt;
+          &lt;button type="submit"&gt;Submit&lt;/button&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+      &lt;script&gt;
+        const daySelect = document.querySelector('[name="day"]');
+        const monthSelect = document.querySelector('[name="month"]');
+        const yearSelect = document.querySelector('[name="year"]');
+        for (let i = 1; i &lt;= 31; i++) daySelect.innerHTML += `&lt;option&gt;${i}&lt;/option&gt;`;
+        ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+          .forEach((m, i) =&gt; monthSelect.innerHTML += `&lt;option value="${i + 1}"&gt;${m}&lt;/option&gt;`);
+        for (let i = 1900; i &lt;= 2025; i++) yearSelect.innerHTML += `&lt;option&gt;${i}&lt;/option&gt;`;
+
+        function submitForm(event) {
+          event.preventDefault();
+          alert("Form Submitted!");
+          document.getElementById("infoForm").reset();
+        }
+      &lt;/script&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+  </pre>
+</body>
+</html>
